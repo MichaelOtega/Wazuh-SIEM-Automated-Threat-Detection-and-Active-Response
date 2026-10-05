@@ -1,0 +1,31 @@
+<!-- 
+==============================================================================
+Wazuh Manager Configuration Snippet (ossec.conf)
+Purpose: Bind the remove-threat.sh script to VirusTotal positive alerts.
+NOTE: Strict ordering required. The <command> block MUST precede the 
+<active-response> block to prevent silent manager startup failures.
+==============================================================================
+-->
+
+<ossec_config>
+
+  <!-- 1. COMMAND DEFINITION (Must execute first) -->
+  <command>
+    <name>remove-threat</name>
+    <executable>remove-threat.sh</executable>
+    <timeout_allowed>no</timeout_allowed>
+  </command>
+
+  <!-- 2. ACTIVE RESPONSE TRIGGER -->
+  <active-response>
+    <!-- Bind to the command defined above -->
+    <command>remove-threat</command>
+    
+    <!-- Execute on the agent where the alert originated (Ubuntu endpoint) -->
+    <location>local</location>
+    
+    <!-- Trigger exclusively on Rule 87105 (VirusTotal - Malicious file found) -->
+    <rules_id>87105</rules_id>
+  </active-response>
+
+</ossec_config>
