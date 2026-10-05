@@ -1,4 +1,4 @@
-# Wazuh-SIEM-Automated-Threat-Detection-and-Active-Response
+
 # Wazuh SIEM & XDR: Automated Threat Detection & Zero-Touch Remediation
 
 Most people talk about SIEM architecture; this repository documents the process of actually building it. This project features a complete Wazuh SIEM and XDR security lab deployed entirely from the ground up—no pre-configured environments, no shortcuts. Just raw infrastructure, production-grade tools, and extensive system troubleshooting.
